@@ -1,2 +1,3 @@
 # MediaOrganizer
-Tool which renames series and movies to a nice format.
+
+Quick and simple tool to rename and organize your series and movies!
