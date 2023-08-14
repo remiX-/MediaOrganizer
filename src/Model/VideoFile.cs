@@ -18,18 +18,18 @@ namespace MediaOrganizer
 
 		public FileInfo Current
 		{
-			get { return currentPath; }
-			set { SetProperty(ref currentPath, value); }
+			get => currentPath;
+			set => SetProperty(ref currentPath, value);
 		}
 		public string OldPathDisplay
 		{
-			get { return currentPathDisplay; }
-			set { SetProperty(ref currentPathDisplay, value); }
+			get => currentPathDisplay;
+			set => SetProperty(ref currentPathDisplay, value);
 		}
 
 		public FileInfo Destination
 		{
-			get { return destinationPath; }
+			get => destinationPath;
 			set
 			{
 				SetProperty(ref destinationPath, value);
@@ -38,14 +38,14 @@ namespace MediaOrganizer
 		}
 		public string NewPathDisplay
 		{
-			get { return newPathDisplay; }
-			set { SetProperty(ref newPathDisplay, value); }
+			get => newPathDisplay;
+			set => SetProperty(ref newPathDisplay, value);
 		}
 
 		public FileStatus Status
 		{
-			get { return status; }
-			set { SetProperty(ref status, value); }
+			get => status;
+			set => SetProperty(ref status, value);
 		}
 		#endregion
 

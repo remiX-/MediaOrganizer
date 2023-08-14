@@ -26,13 +26,13 @@ namespace MediaOrganizer
 
 		public string Theme
 		{
-			get { return theme; }
-			set { SetProperty(ref theme, value); }
+			get => theme;
+			set => SetProperty(ref theme, value);
 		}
 
 		public string SeriesSortFolder
 		{
-			get { return seriesSortFolder; }
+			get => seriesSortFolder;
 			set
 			{
 				if (value.Substring(value.Length - 1) != "\\")
@@ -46,7 +46,7 @@ namespace MediaOrganizer
 		}
 		public string SeriesMoveFolder
 		{
-			get { return seriesMoveFolder; }
+			get => seriesMoveFolder;
 			set
 			{
 				if (value.Substring(value.Length - 1) != "\\")
@@ -60,13 +60,13 @@ namespace MediaOrganizer
 		}
 		public bool SeriesMoveAuto
 		{
-			get { return seriesMoveAuto; }
-			set { SetProperty(ref seriesMoveAuto, value); }
+			get => seriesMoveAuto;
+			set => SetProperty(ref seriesMoveAuto, value);
 		}
 
 		public string MoviesSortFolder
 		{
-			get { return moviesSortFolder; }
+			get => moviesSortFolder;
 			set
 			{
 				if (value.Substring(value.Length - 1) != "\\")
@@ -80,8 +80,8 @@ namespace MediaOrganizer
 		}
 		public bool MoviesListedName
 		{
-			get { return moviesListedName; }
-			set { SetProperty(ref moviesListedName, value); }
+			get => moviesListedName;
+			set => SetProperty(ref moviesListedName, value);
 		}
 
 		private DelegateCommand swapThemeCommand;
@@ -94,11 +94,11 @@ namespace MediaOrganizer
 					swapThemeCommand = new DelegateCommand(
 						() =>
 						{
-							var current = ThemeManager.DetectAppStyle();
-							AppTheme inverse = ThemeManager.GetInverseAppTheme(current.Item1);
-							ThemeManager.ChangeAppStyle(Application.Current, current.Item2, inverse);
-
-							Theme = inverse.Name;
+							// var current = ThemeManager.DetectAppStyle();
+							// AppTheme inverse = ThemeManager.GetInverseAppTheme(current.Item1);
+							// ThemeManager.ChangeAppStyle(Application.Current, current.Item2, inverse);
+							//
+							// Theme = inverse.Name;
 						}
 					);
 				}

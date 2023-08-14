@@ -1,13 +1,13 @@
 ﻿<Controls:MetroWindow x:Class="MediaOrganizer.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:MediaOrganizer"
-        Title="Series and Movies Organizer" Icon="Resources/icon.ico"
-		Loaded="MetroWindow_Loaded" Closed="MetroWindow_Closed"
-		Width="1024" Height="576" MinWidth="1024" MinHeight="576"
-		WindowStartupLocation="CenterScreen"
-		Style="{StaticResource MetroWindow}">
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:local="clr-namespace:MediaOrganizer"
+                      Title="Series and Movies Organizer"
+                      Loaded="MetroWindow_Loaded" Closed="MetroWindow_Closed"
+                      Width="1024" Height="576" MinWidth="1024" MinHeight="576"
+                      WindowStartupLocation="CenterScreen"
+                      Style="{StaticResource MetroWindow}">
 	<Controls:MetroWindow.DataContext>
 		<local:MainViewModel/>
 	</Controls:MetroWindow.DataContext>
@@ -38,7 +38,8 @@
 		</Grid.ColumnDefinitions>
 
 		<GroupBox Grid.Row="0" Grid.Column="0" Header="Series">
-			<StackPanel Margin="5 0 5 5" local:MarginSetter.Margin="0 5 0 0">
+			<!-- <StackPanel Margin="5 0 5 5" local:MarginSetter.Margin="0 5 0 0"> -->
+			<StackPanel Margin="5 0 5 5">
 				<Label Content="Folder to sort" />
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -61,7 +62,8 @@
 					<TextBox Grid.Column="0" Text="{Binding SeriesMoveFolder, UpdateSourceTrigger=LostFocus}" />
 					<Button Grid.Column="2" Content="Browse" Click="SeriesMoveFolderBrowse_Click" />
 				</Grid>
-				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" local:MarginSetter.Margin="5 0 0 0">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" local:MarginSetter.Margin="5 0 0 0"> -->
 					<Button Content="Load" Click="SeriesLoad_Click" />
 					<Button Content="Start" Click="SeriesStart_Click" />
 					<Button Content="Undo" Click="SeriesUndo_Click" />
@@ -71,7 +73,8 @@
 
 		<GroupBox Grid.Row="0" Grid.Column="2" Header="Movies">
 			<Grid  Margin="5 0 5 5">
-				<StackPanel local:MarginSetter.Margin="0 5 0 0">
+				<!-- <StackPanel local:MarginSetter.Margin="0 5 0 0"> -->
+				<StackPanel>
 					<Label Content="Folder to sort" />
 					<Grid>
 						<Grid.ColumnDefinitions>
@@ -85,7 +88,8 @@
 					</Grid>
 					<CheckBox Content="Place 'The' at end" IsChecked="{Binding MoviesListedName}" />
 				</StackPanel>
-				<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" local:MarginSetter.Margin="5 0 0 0">
+				<!-- <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" local:MarginSetter.Margin="5 0 0 0"> -->
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
 					<Button Content="Load" Click="MoviesLoad_Click" />
 					<Button Content="Start" Click="MoviesStart_Click" />
 					<Button Content="Undo" Click="MoviesUndo_Click" />
@@ -99,9 +103,9 @@
 					<MenuItem Header="Remove" />
 				</ContextMenu>
 
-				<Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MetroDataGridCell}">
-					<Setter Property="ContextMenu" Value="{StaticResource cm_DataGridRow}" />
-				</Style>
+				<!-- <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MetroDataGridCell}"> -->
+				<!-- 	<Setter Property="ContextMenu" Value="{StaticResource cm_DataGridRow}" /> -->
+				<!-- </Style> -->
 			</DataGrid.Resources>
 			<DataGrid.Columns>
 				<DataGridTextColumn Binding="{Binding OldPathDisplay}" Width="2*" Header="Old Path" />

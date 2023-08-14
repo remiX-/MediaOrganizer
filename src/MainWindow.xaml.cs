@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using ControlzEx.Theming;
 using Forms = System.Windows.Forms;
 
 namespace MediaOrganizer
@@ -50,8 +51,9 @@ namespace MediaOrganizer
 			MyVM = (MainViewModel)DataContext;
 
 			// Theme
-			var current = ThemeManager.DetectAppStyle();
-			ThemeManager.ChangeAppStyle(Application.Current, current.Item2, ThemeManager.GetAppTheme(Properties.Settings.Default.AppTheme));
+			var current = ThemeManager.Current.DetectTheme();
+			// ThemeManager.Current.ChangeTheme(Application.Current,ThemeManager.GetAppTheme(Properties.Settings.Default.AppTheme));
+			// ThemeManager.Current.ChangeTheme(Application.Current, ThemeManager.BaseColorDark);
 		}
 
 		private void MetroWindow_Closed(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace MediaOrganizer
 
 			if (fbd.ShowDialog() == Forms.DialogResult.OK)
 			{
-				MyVM.SeriesSortFolder = fbd.SelectedPath;
+				MyVM.SeriesMoveFolder = fbd.SelectedPath;
 			}
 		}
 
@@ -274,7 +276,7 @@ namespace MediaOrganizer
 				try
 				{
 					DirectoryInfo dirParent = file.Current.Directory;
-					
+
 					var oldMovieName = Path.GetFileNameWithoutExtension(file.Current.Name).ToLower();
 					var isDirectChildOfRootFolder = dirRoot.Name == dirParent.Name;
 					string movieName, movieFullName;
@@ -334,7 +336,7 @@ namespace MediaOrganizer
 					if (isDirectChildOfRootFolder)
 					{
 						DirectoryInfo dirNew = new DirectoryInfo(Path.Combine(dirParent.FullName, movieName + (!string.IsNullOrWhiteSpace(year) ? " (" + year + ")" : "")));
-						if (!dirNew.Exists)	
+						if (!dirNew.Exists)
 							dirNew.Create();
 						file.SetDestination(dirNew.FullName, movieFullName);
 					}
